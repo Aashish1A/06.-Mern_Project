@@ -1,12 +1,65 @@
-# React + Vite
+# MERN Project
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a full-stack MERN (MongoDB, Express, React, Node.js) project. The project is structured to include a `Frontend` for the client-side application and a `Backend` for the server-side API.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Project Structure
 
-## Expanding the ESLint configuration
+project-folder/ │ ├── Backend/ │ ├── config/ │ │ └── db.js # MongoDB connection setup │ ├── controllers/ │ │ └── <entity>.controller.js # Logic for routes │ ├── models/ │ │ └── <entity>.model.js # Mongoose schema │ ├── routes/ │ │ └── <entity>.route.js # API routes │ ├── server.js # Main server file │ └── .env # Environment variables │ ├── Frontend/ │ ├── public/ │ │ └── index.html # HTML entry point │ ├── src/ │ │ ├── components/ # React components │ │ ├── App.jsx # Main React component │ │ └── main.jsx # React entry point │ └── vite.config.js # Vite configuration │ ├── package.json # Project dependencies and scripts ├── .gitignore # Files to ignore in Git └── README.md
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## Backend Setup
+
+1. **Initialize the Project**
+   ```bash
+   npm init -y
+   npm install express mongoose dotenv
+   ```
+
+2. Set Up MongoDB
+
+Go to MongoDB Atlas.
+Create a project and a cluster.
+Copy the connection string and update the .env file
+
+MONGO_URI=mongodb+srv://<username>:<password>@cluster0.mongodb.net/<database>?retryWrites=true&w=majority
+PORT=5000
+
+3. Create Backend Files
+
+config/db.js: MongoDB connection logic.
+models/<entity>.model.js: Define Mongoose schema.
+controllers/<entity>.controller.js: Add route logic.
+routes/<entity>.route.js: Define API routes.
+server.js: Main server file.
+
+4. Run the Server
+npm run dev
+
+
+----------Frontend Setup-----------
+cd frontend
+npm create vite@latest
+npm install
+
+npm install @chakra-ui/react @emotion/react react-icons react-router-dom
+
+2. Frontend Files
+
+src/main.jsx: React entry point.
+src/App.jsx: Main React component.
+src/components/: Add reusable components.
+
+4. Run the Frontend
+npm run dev
+
+------- Scripts
+Start Backend: npm run dev
+Start Frontend: npm run dev (inside Frontend folder)
+
+Notes
+Use nodemon for automatic server restarts during development.
+Use dotenv to manage environment variables securely.
+Use Vite for a fast React development environment.
