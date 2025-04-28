@@ -1,9 +1,10 @@
-import { Route, Routes } from "react-router-dom";
-import CreatePage from "./Pages/CreatePage";
-import HomePage from "./Pages/HomePage";
-import Navbar from "../../Frontend/src/components/Navbar/Navbar";
+import { Route, Routes } from "react-router-dom"
+import HomePage from "./Pages/HomePage"
+import CreatePage from "./Pages/CreatePage"
+import Navbar from "./Components/Navbar"
 
 function App() {
+
   return (
     <div>
       <Navbar />
@@ -12,7 +13,7 @@ function App() {
         <Route path="/create" element={<CreatePage />} />
       </Routes>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

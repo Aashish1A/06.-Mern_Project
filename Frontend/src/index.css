@@ -1,9 +1,8 @@
-@tailwind utilities;
+@import "tailwindcss";
 
 @layer base{
   .dark body {
     background-color: black;
     color: #e5e7eb;
   }
-
 }

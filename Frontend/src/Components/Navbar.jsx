@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { AiOutlinePlusSquare } from "react-icons/ai";
 import { IoMoon, IoSunny } from "react-icons/io5";
-import { useProductStore } from "../../Store/Product";
+import { useProductStore } from "../../../Frontend/src/Store/Product";
 
 const Navbar = () => {
   const [darkMode, setDarkMode] = useState(false);
