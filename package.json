@@ -4,7 +4,9 @@
   "description": "This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.",
   "main": "index.js",
   "scripts": {
-    "dev": "node Backend/server.js"
+    "dev": "cross-env NODE_ENV=development node Backend/server.js",
+    "build": "npm install && npm install --prefix Frontend && npm run build --prefix Frontend",
+    "start": "cross-env NODE_ENV=production node Backend/server.js"
   },
   "type": "module",
   "keywords": [],
@@ -13,9 +15,12 @@
   "dependencies": {
     "dotenv": "^16.5.0",
     "express": "^5.1.0",
-    "mongoose": "^8.14.0"
+    "mongoose": "^8.14.0",
+    "path-to-regexp": "^8.2.0"
   },
   "devDependencies": {
+    "cross-env": "^7.0.3",
+    "nodemo": "^1.0.0",
     "nodemon": "^3.1.10"
   }
 }
