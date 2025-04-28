@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { AiOutlinePlusSquare } from "react-icons/ai";
 import { IoMoon, IoSunny } from "react-icons/io5";
-import { useProductStore } from "../../../Frontend/src/Store/Product";
 
 const Navbar = () => {
   const [darkMode, setDarkMode] = useState(false);
@@ -12,7 +11,6 @@ const Navbar = () => {
     document.documentElement.classList.toggle("dark", !darkMode);
   };
 
-  const { products } = useProductStore();
 
   return (
     <nav className="flex items-center justify-between px-[6%] py-4  dark:bg-gray-800 shadow-md">

@@ -1,10 +1,13 @@
 import React, { useState } from "react";
+import { useProductStore } from "../Store/Product";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const CreatePage = () => {
   const [formData, setFormData] = useState({
-    productName: "",
+    name: "",
     price: "",
-    imageUrl: "",
+    image: "",
   });
 
   const handleChange = (e) => {
@@ -12,14 +15,26 @@ const CreatePage = () => {
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const {createProduct} =  useProductStore()
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Product Added:", formData);
+    // console.log("Product Added:", formData);
+
     // Add your logic to send the form data to the backend
+    const {success, message} = await createProduct(formData);
+    if (success) {
+        toast.success(message); // Success toast
+    } else {
+        toast.error(message); // Error toast
+    }
+
+    setFormData({name: "", price: "", image: ""});
   };
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen">
+        <ToastContainer />
       <h1 className="text-3xl font-bold text-gray-800 dark:text-gray-400 mb-6">
         Create New Product
       </h1>
@@ -36,8 +51,8 @@ const CreatePage = () => {
           </label>
           <input
             type="text"
-            name="productName"
-            value={formData.productName}
+            name="name"
+            value={formData.name}
             onChange={handleChange}
             placeholder="Enter product name"
             className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-600 dark:text-gray-200"
@@ -68,8 +83,8 @@ const CreatePage = () => {
           </label>
           <input
             type="text"
-            name="imageUrl"
-            value={formData.imageUrl}
+            name="image"
+            value={formData.image}
             onChange={handleChange}
             placeholder="Enter image URL"
             className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-600 dark:text-gray-200"
