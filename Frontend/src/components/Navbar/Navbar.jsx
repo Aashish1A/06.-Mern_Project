@@ -15,7 +15,7 @@ const Navbar = () => {
   const { products } = useProductStore();
 
   return (
-    <nav className="flex items-center justify-between px-[6%] py-4 bg-gray-100 dark:bg-gray-800 shadow-md">
+    <nav className="flex items-center justify-between px-[6%] py-4  dark:bg-gray-800 shadow-md">
       <div className="flex items-center space-x-3">
         <Link
           to="/"
